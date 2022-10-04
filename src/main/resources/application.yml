@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: Currency Converter
+  thymeleaf:
+    reactive:
+      max-chunk-size: 8192
+
+server:
+  port: 8080
+
+exchangerates:
+  baseUrl: https://api.apilayer.com/exchangerates_data/
+  latest: latest?symbols=%s&base=%s
+  symbols: symbols
+  secret: sample
+  proxy:
+    baseUrl: http://localhost:8080/api/v1/exchange-rate/
+    latest: latest
+    symbols: symbols

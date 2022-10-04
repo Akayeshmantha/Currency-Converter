@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+}
+
+group = 'de.check24'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation group: 'io.projectreactor.addons', name: 'reactor-extra', version: '3.3.3.RELEASE'
+	implementation group: 'com.google.guava', name: 'guava', version: '29.0-jre'
+	implementation group: 'org.springframework', name: 'spring-context-support', version: '4.3.8.RELEASE'
+	implementation 'junit:junit:4.13.1'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation group: 'com.squareup.okhttp3', name: 'mockwebserver', version: '3.2.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
